@@ -13,6 +13,14 @@ public boolean sleepIn(boolean weekday,boolean vacation){
         }
         return false;
         }
+
+        Expected	Run		
+sleepIn(false, false) → true	true	OK	
+sleepIn(true, false) → false	false	OK	
+sleepIn(false, true) → true	true	OK	
+sleepIn(true, true) → true	true	OK	
+
+
 //    Given an int n, return the absolute difference between n and 21, except return double the absolute difference if n is over 21.
 //
 //    diff21(19) → 2
@@ -178,4 +186,120 @@ public boolean loneTeen(int a, int b) {
   boolean bTeen = ( 13 <= b && b <=19 );
   return ((!aTeen && bTeen) || (aTeen && !bTeen) );
 }
+
+// Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes the absolute value of a number.
+
+// nearHundred(93) → true
+// nearHundred(90) → true
+// nearHundred(89) → false
+
+public boolean nearHundred(int n) {
+ return ((Math.abs(100 - n) <= 10) ||
+    (Math.abs(200 - n) <= 10));
+}
+
+
+// Given a non-empty string and an int n, return a new string where the char at index n has been removed. 
+// The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..str.length()-1 inclusive).
+// missingChar("kitten", 1) → "ktten"
+// missingChar("kitten", 0) → "itten"
+// missingChar("kitten", 4) → "kittn"
+
+public String missingChar(String str, int n) {
+String front = str.substring(0, n);
+String back = str.substring(n+1, str.length());
+return  front + back;
+}
+
+
+// Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+// sumDouble(1, 2) → 3
+// sumDouble(3, 2) → 5
+// sumDouble(2, 2) → 8
+
+
+public int sumDouble(int a, int b) {
+  if ( a == b ){
+    return (a+b) * 2;
+  } else 
+  return a+b;
+}
+
+
+// Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged. Note: use .equals() to compare 2 strings.
+
+// notString("candy") → "not candy"
+// notString("x") → "not x"
+// notString("not bad") → "not bad"
+
+public String notString(String str) {
+String lol  = "not " +str;
+  if (str.length() >= 3 && str.substring(0, 3).equals("not")) {
+    return str;
+  } else {
+   return lol;
+  }
+}
+
+// Given a string, return true if the string starts with "hi" and false otherwise.
+
+// startHi("hi there") → true
+// startHi("hi") → true
+// startHi("hello hi") → false
+
+public boolean startHi(String str) {
+    String firstTwo = str.substring(0, 2);
+
+  if (str.length() < 2){
+    return false;
+  } 
+    if (firstTwo.equals("hi")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+// in1020(12, 99) → true
+// in1020(21, 12) → true
+// in1020(8, 99) → false
+
+public boolean in1020(int a, int b) {
+if ((a >= 10 && a <= 20 )|| (b >= 10 && b <= 20 )){
+  return true;
+} else {
+  return false;
+}
+}
+
+Expected	Run		
+in1020(12, 99) → true	true	OK	
+in1020(21, 12) → true	true	OK	
+in1020(8, 99) → false	false	OK	
+in1020(99, 10) → true	true	OK	
+in1020(20, 20) → true	true	OK	
+in1020(21, 21) → false	false	OK	
+in1020(9, 9) → false	false	OK	
+
+// We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling. We are in trouble if they are both smiling or if neither of them is smiling. Return true if we are in trouble.
+
+// monkeyTrouble(true, true) → true
+// monkeyTrouble(false, false) → true
+// monkeyTrouble(true, false) → false
+
+public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+  if  (aSmile && bSmile){
+   return true;
+  }
+  if  (!aSmile && !bSmile){
+   return true;
+  }
+  return false;
+}
+Expected	Run		
+monkeyTrouble(true, true) → true	true	OK	
+monkeyTrouble(false, false) → true	true	OK	
+monkeyTrouble(true, false) → false	false	OK	
+monkeyTrouble(false, true) → false	false	OK	
 
