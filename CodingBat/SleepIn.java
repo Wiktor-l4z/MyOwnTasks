@@ -303,3 +303,28 @@ monkeyTrouble(false, false) → true	true	OK
 monkeyTrouble(true, false) → false	false	OK	
 monkeyTrouble(false, true) → false	false	OK	
 
+
+// Given a string, if the string "del" appears starting at index 1, return a string where that "del" has been deleted. Otherwise, return the string unchanged.
+
+// delDel("adelbc") → "abc"
+// delDel("adelHello") → "aHello"
+// delDel("adedbc") → "adedbc"
+
+public String delDel(String str) {
+ String delete = "del";
+ str = str.replaceAll(delete, "");
+  return str;
+}
+delDel("adelbc") → "abc"	"abc"	OK	
+delDel("adelHello") → "aHello"	"aHello"	OK	
+delDel("adedbc") → "adedbc"	"adedbc"	OK	
+delDel("abcdel") → "abcdel"	"abc"	X	
+delDel("add") → "add"	"add"	OK	
+delDel("ad") → "ad"	"ad"	OK	
+delDel("a") → "a"	"a"	OK	
+delDel("") → ""	""	OK	
+delDel("del") → "del"	""	X	
+delDel("adel") → "a"	"a"	OK	
+delDel("aadelbb") → "aadelbb"	"aabb"	X	
+
+// TODO need to fix
