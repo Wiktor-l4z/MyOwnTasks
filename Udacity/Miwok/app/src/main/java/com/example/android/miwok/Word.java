@@ -2,39 +2,47 @@ package com.example.android.miwok;
 
 public class Word {
 
-    private String mDeafaultTranstaltion;
+    private String mDefaultTranslation;
 
     private String mMiwokTranslation;
+
+    private int SoundResourceID;
 
     private int ImageResourceID = NO_IMAGE_PROVIDED;
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String mDeafaultTranstaltion, String mMiwokTranslation, int imageResourceID) {
-        this.mDeafaultTranstaltion = mDeafaultTranstaltion;
-        ImageResourceID = imageResourceID;
+
+    public Word(String mDefaultTranslation, String mMiwokTranslation, int imageResourceID, int soundResourceID) {
+        this.mDefaultTranslation = mDefaultTranslation;
         this.mMiwokTranslation = mMiwokTranslation;
+        ImageResourceID = imageResourceID;
+        SoundResourceID = soundResourceID;
     }
 
-    public Word(String mMiwokTranslation, String mDeafaultTranstaltion) {
+    public Word(String mMiwokTranslation, String mDefaultTranslation, int soundResourceID) {
         this.mMiwokTranslation = mMiwokTranslation;
-        this.mDeafaultTranstaltion = mDeafaultTranstaltion;
+        this.mDefaultTranslation = mDefaultTranslation;
+        SoundResourceID = soundResourceID;
     }
 
     public int getImageResourceID() {
         return ImageResourceID;
     }
 
-    public String getmDeafaultTranstaltion() {
-        return mDeafaultTranstaltion;
+    public String getmDefaultTranslation() {
+        return mDefaultTranslation;
     }
 
     public String getmMiwokTranslation() {
         return mMiwokTranslation;
     }
 
+    public int getSoundResourceID() {
+        return SoundResourceID;
+    }
 
     public boolean hasImage() {
-       return ImageResourceID != NO_IMAGE_PROVIDED;
+        return ImageResourceID != NO_IMAGE_PROVIDED;
     }
 }

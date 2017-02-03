@@ -19,6 +19,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
      */
     private int mColorResourceID;
 
+
     /**
      * Create a new {@link WordAdapter} object.
      *
@@ -50,7 +51,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView mDeafaultTextView = (TextView) listItemView.findViewById(R.id.random_text_view);
         // Get the Miwok translation from the currentWord object and set this text on
         // the Miwok TextView.
-        mDeafaultTextView.setText(currentAndroidFlavor.getmDeafaultTranstaltion());
+        mDeafaultTextView.setText(currentAndroidFlavor.getmDefaultTranslation());
         // Find the TextView in the list_item.xml layout with the ID default_text_view.
         TextView mMiwokTextView = (TextView) listItemView.findViewById(R.id.miwoako_text_view);
         // Get the default translation from the currentWord object and set this text on
