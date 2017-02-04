@@ -3,24 +3,39 @@ package com.example.android.miwok;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
-
+    /**
+     * Handles playback of all the sound files
+     */
     private MediaPlayer mediaPlayer;
+    /**
+     * This listener gets triggered when the {@link MediaPlayer} has completed
+     * playing the audio file.
+     */
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            // Now that the sound file has finished playing, release the media player resources.
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-
+        // Create a list of words
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
         words.add(new Word("two", "otiiko", R.drawable.number_two, R.raw.number_two));
@@ -32,7 +47,6 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("eight", "kawinta", R.drawable.number_eight, R.raw.number_eight));
         words.add(new Word("nine", "wo’e", R.drawable.number_nine, R.raw.number_nine));
         words.add(new Word("ten", "na’aacha", R.drawable.number_ten, R.raw.number_ten));
-
 
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
@@ -51,15 +65,38 @@ public class NumbersActivity extends AppCompatActivity {
         // {@link ListView} will display list items for each word in the list of words.
         // Do this by calling the setAdapter method on the {@link ListView} object and pass in
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
+
+
         listView.setAdapter(adapter);
+
+        // Set a click listener to play the audio when the list item is clicked on
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Release the media player if it currently exists because we are about to
+                // play a different sound file
+                releaseMediaPlayer();
+                // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
+
+                Log.v("NumbersActivity", "Current word: " + word);
                 mediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getSoundResourceID());
+
                 mediaPlayer.start();
+                // Setup a listener on the media player, so that we can stop and release the
+                // media player once the sound has finished playing.
+                mediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+    }
+
+
+    private void releaseMediaPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+
+            mediaPlayer = null;
+        }
     }
 }
 
