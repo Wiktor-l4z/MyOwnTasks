@@ -6,11 +6,17 @@ public class Earthquake {
     private String mLocation;
     private String mDate;
 
+    private long mTimeInMilliseconds;
 
-    public Earthquake(String mMagnitude, String mDate, String mLocation) {
+    public Earthquake(String mMagnitude, long mTimeInMilliseconds, String mLocation, String dataToDisplay) {
         this.mMagnitude = mMagnitude;
-        this.mDate = mDate;
+        this.mTimeInMilliseconds = mTimeInMilliseconds;
         this.mLocation = mLocation;
+        this.mDate = dataToDisplay;
+    }
+
+    public long getmTimeInMilliseconds() {
+        return mTimeInMilliseconds;
     }
 
     public String getmDate() {
