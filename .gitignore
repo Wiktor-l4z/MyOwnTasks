@@ -43,6 +43,12 @@ out/
 com_crashlytics_export_strings.xml
 
 #################
+## IntelliJ IDEA
+#################
+.idea
+
+
+#################
 ## Visual Studio
 #################
 
