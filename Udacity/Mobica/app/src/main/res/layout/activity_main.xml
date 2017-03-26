@@ -27,43 +27,16 @@
             android:background="@color/colorSea"
             android:orientation="vertical">
 
-
-            <HorizontalScrollView
-                android:id="@+id/relativeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <ImageView
-
-                        android:paddingRight="5dp"
-                        android:background="@color/colorBlack"
-                        android:id="@+id/first"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/image_rd" />
-
-                    <ImageView
-                        android:id="@+id/second"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/image_helping" />
-
-
-                    <ImageView
-                        android:id="@+id/third"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/image_keep" />
-                </LinearLayout>
-
-
-            </HorizontalScrollView>
+            <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp" />
 
             <View
                 android:layout_width="match_parent"
