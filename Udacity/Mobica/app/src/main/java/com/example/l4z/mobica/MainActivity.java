@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
 import static com.example.l4z.mobica.R.drawable.mobica_fix;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
         Typeface myTypeFace = Typeface.createFromAsset(getAssets(), "RegencieLight.ttf");
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setTypeface(myTypeFace);
-
-
-
 
         ImageView uxImageView = (ImageView) findViewById(R.id.ux_ui);
         uxImageView.setOnClickListener(new View.OnClickListener() {

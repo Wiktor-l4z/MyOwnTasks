@@ -40,6 +40,9 @@
 
 
                     <ImageView
+
+                        android:paddingRight="5dp"
+                        android:background="@color/colorBlack"
                         android:id="@+id/first"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -64,13 +67,13 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="3dp"
                 android:background="@android:color/black" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:gravity="center"
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
@@ -79,7 +82,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="3dp"
                 android:background="@android:color/black" />
 
             <LinearLayout
